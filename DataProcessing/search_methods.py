@@ -38,7 +38,7 @@ def KNN_Seq(k, query, n, path):
     distances = fr.face_distance(conocidas, query)
     res = []
 
-    for i in range(it):
+    for i in range(n):
         res.append((distances[i], names_in_order[i]))
     heapq.heapify(res)
     result = heapq.nsmallest(k, res)

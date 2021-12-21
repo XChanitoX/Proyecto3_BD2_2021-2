@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facial Recognition App</title>
+    <title>App Consultas</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/vapor/bootstrap.min.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">Facial Recognition App</a>
+            <a class="navbar-brand" href="/">App Consultas</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
                 aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,47 +31,35 @@
     </nav>
 
 
-    <div class="container mt-5">
+    <div class="container mt-5" display="flex" height="50rem" position="absolute" top="0" left="0">
 
         <div class="col-md-4">
-            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card text-white bg-primary mb-3" style="max-width: 30rem;">
                 <div class="card-header">Ingrese su consulta</div>
                 <div class="card-body">
                     <form action="/consulta" method="POST">
-                        <input type="text" name="query" placeholder="Consulta" class="mb-3">
-                        <input type="text" name="tweets" placeholder="Número de Tweets">
-                        <button type="submit" class="btn btn-info mx-lg-2">
-                            Enviar
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
+                        <span class="badge badge-dark" for="cars">Escoja su método de búsqueda:</span>
 
-        <div class="col-md-10">
-            <div class="card border-primary mb-3">
-                <div class="card-header">Tweets</div>
-                <div class="card-body">
-                    <table class="table table-hover table-bordered table-striped" style="table-layout: fixed;">
-                        <thead>
-                            <tr>
-                                <td>Date</td>
-                                <td>Text</td>
-                                <td>User_ID</td>
-                                <td>User_Name</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for c in consultas %}
-                            <tr>
-                                <td>{{ c['date'] }}</td>
-                                <td>{{ c['text'] }}</td>
-                                <td>{{ c['user_id'] }}</td>
-                                <td>{{ c['user_name'] }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                        <div class=" text-center p-t-8">
+                            <select name="KNN" id="KNN" form="form" class="form-control">
+                                <option value="RTree">RTree</option>
+                                <option value="Sequential">Sequential</option>
+                            </select>
+                        </div>
+
+                        <div class="K-input">
+                            <input type="text" name="KValue" />
+                        </div>
+                        
+                        <div class="file-input">
+                            <input type="FILE" name="file" />
+                        </div>
+                        
+                        <div class="form-btn">
+                            <input type="submit" value="Enviar" id="btn" class="btn btn-primary">
+                        </div>
+                        
+                    </form>
                 </div>
             </div>
         </div>

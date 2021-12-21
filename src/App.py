@@ -26,10 +26,9 @@ def Result():
             data = KNN_rtree(int(KValue),query)
             return render_template('result1.html', result = data)
         if Method == 'Sequential':
-            collection_path = '/mnt/d/UTEC/2021-2/BD2/Proyecto/Proyecto3_BD2_2021-2/DataProcessing/Collection/lfw/'
             img = fr.load_image_file(path)
             query = fr.face_encodings(img)[0]
-            data = KNN_Seq(int(KValue), query, 500, collection_path)
+            data = KNN_Seq(int(KValue), query, 12800)
             return render_template('result2.html', result = data)
 
 @app.route("/image/<directorio>/<filename>") 

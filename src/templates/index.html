@@ -37,14 +37,12 @@
             <div class="card text-white bg-primary mb-3" style="max-width: 30rem;">
                 <div class="card-header">Ingrese su consulta</div>
                 <div class="card-body">
-                    <form action="/consulta" method="POST">
+                    <form action="/result" method="POST">
                         <span class="badge badge-dark" for="cars">Escoja su método de búsqueda:</span>
 
-                        <div class=" text-center p-t-8">
-                            <select name="KNN" id="KNN" form="form" class="form-control">
-                                <option value="RTree">RTree</option>
-                                <option value="Sequential">Sequential</option>
-                            </select>
+
+                        <div class="K-NN">
+                            <input type="text" name="KNN" />
                         </div>
 
                         <div class="K-input">
@@ -52,7 +50,7 @@
                         </div>
                         
                         <div class="file-input">
-                            <input type="FILE" name="file" />
+                            <input accept=".jpg, .png" type="file" name="file" />
                         </div>
                         
                         <div class="form-btn">

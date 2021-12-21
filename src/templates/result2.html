@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados 2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/vapor/bootstrap.min.css">
+</head>
+
+<body>
+<div>
+    <h3 class="display-4">Resultados Sequential</h3>
+</div>
+{% set numero = namespace(value=1) %}
+{% for element in result %}
+<div style="width:250px;display:inline-block;">
+    {% set dist = element[0]%}
+    {% set image_name = element[1].split('/')[-1]%}
+    {% set ruta = element[1].split('/')[-2] %}
+    <img class="" src="{{ url_for('show_image', filename=image_name,directorio=ruta) }}">
+    <div class="">
+        <p>#{{numero.value}} -- {{ruta}}</p>
+        <p>Semejanza: {{dist}}</p>
+    </div>
+</div>
+{% set numero.value=numero.value+1%}
+{% endfor %}
+
+</body>
+
+</html>

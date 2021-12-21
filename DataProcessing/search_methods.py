@@ -61,23 +61,3 @@ def KNN_rtree(k, to_search):
         query_list.append(query_i)
 
     return rtreeidx.nearest(coordinates=query_list, num_results=k, objects='raw')
-
-def Seq_testing():
-    # KNN Seq Testing
-    collection_path = base_path + '/DataProcessing/Collection/lfw/'
-    img_path = base_path + "/DataProcessing/Collection/set_1/"
-    img = fr.load_image_file(img_path+'foto1.jpg')
-    query = fr.face_encodings(img)[0]
-    result = KNN_Seq(10, query, 500, collection_path)
-    print(result)
-
-def RTree_testing():
-    # KNN RTree testing
-    path = base_path + '/DataProcessing/Collection/set_1/'
-    img = fr.load_image_file(path+'foto1.jpg')
-    query = fr.face_encodings(img)[0]
-    result = KNN_rtree(10,query)
-    print(list(result))
-
-# Seq_testing()
-RTree_testing()

@@ -53,5 +53,6 @@ def process_collection(rtree_name, n):
     return rtree_idx
 
 
-rtree_name = 'rtreeFile'
-process_collection(rtree_name, 600)
+n = 12800
+rtree_name = 'rtreeFile' + str(n)
+process_collection(rtree_name, n)

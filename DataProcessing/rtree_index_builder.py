@@ -2,8 +2,6 @@ import os
 import face_recognition as fr
 from rtree import index
 
-path = '/mnt/c/Users/Sebastian/C_2021-2/BD2/Projects/P3/DataProcessing'
-
 def process_collection(rtree_name, n):
     path = "/mnt/c/Users/Sebastian/C_2021-2/BD2/Projects/P3/DataProcessing/Collection/lfw"
     dir_list = os.listdir(path)

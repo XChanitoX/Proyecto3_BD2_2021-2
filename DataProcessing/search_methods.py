@@ -3,6 +3,7 @@ import heapq
 import face_recognition as fr
 from rtree import index
 
+base_path = os.getcwd()
 
 def KNN_Seq(k, query, n, path):
 
@@ -46,7 +47,7 @@ def KNN_Seq(k, query, n, path):
 
 
 def KNN_rtree(k, to_search):
-    path = "/mnt/c/Users/Sebastian/C_2021-2/BD2/Projects/P3/DataProcessing/"
+    path = base_path + "/DataProcessing/"
     rtree_name = path + 'rtreeFile'
 
     query = to_search
@@ -63,8 +64,8 @@ def KNN_rtree(k, to_search):
 
 def Seq_testing():
     # KNN Seq Testing
-    collection_path = '/mnt/c/Users/Sebastian/C_2021-2/BD2/Projects/P3/DataProcessing/Collection/lfw/'
-    img_path = "/mnt/c/Users/Sebastian/C_2021-2/BD2/Projects/P3/DataProcessing/Collection/set_1/"
+    collection_path = base_path + '/DataProcessing/Collection/lfw/'
+    img_path = base_path + "/DataProcessing/Collection/set_1/"
     img = fr.load_image_file(img_path+'foto1.jpg')
     query = fr.face_encodings(img)[0]
     result = KNN_Seq(10, query, 500, collection_path)
@@ -72,7 +73,7 @@ def Seq_testing():
 
 def RTree_testing():
     # KNN RTree testing
-    path = '/mnt/c/Users/Sebastian/C_2021-2/BD2/Projects/P3/DataProcessing/Collection/set_1/'
+    path = base_path + '/DataProcessing/Collection/set_1/'
     img = fr.load_image_file(path+'foto1.jpg')
     query = fr.face_encodings(img)[0]
     result = KNN_rtree(10,query)

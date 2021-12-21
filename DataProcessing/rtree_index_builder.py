@@ -2,8 +2,10 @@ import os
 import face_recognition as fr
 from rtree import index
 
+base_path = os.getcwd()
+
 def process_collection(rtree_name, n):
-    path = "/mnt/c/Users/Sebastian/C_2021-2/BD2/Projects/P3/DataProcessing/Collection/lfw"
+    path = base_path + "/DataProcessing/Collection/lfw"
     dir_list = os.listdir(path)
 
     p = index.Property()
